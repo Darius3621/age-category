@@ -1,0 +1,46 @@
+/*
+  Program: AgeCategory
+  Course: ICT 113
+  Description:
+    - Ask the user for their age (whole number).
+    - Use if/else to categorize:
+        <13  -> child
+        13-19-> teenager
+        >=20 -> adult
+  How to compile:
+    gcc -Wall -Wextra -o age_category main.c
+  How to run:
+    ./age_category   (Windows: age_category.exe)
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int age;  // variable to store the user's age
+
+    // 1) Input
+    printf("Enter your age: ");
+    if (scanf("%d", &age) != 1) {            // validate numeric input
+        printf("Invalid input. Please enter a whole number.\n");
+        return 1; // non-zero means something went wrong
+    }
+
+    // Optional sanity check
+    if (age < 0) {
+        printf("Age cannot be negative.\n");
+        return 1;
+    }
+
+    // 2) Decision making with if/else if/else
+    if (age < 13) {
+        printf("You are a child.\n");
+    } else if (age <= 19) { // we already know age >= 13 here
+        printf("You are a teenager.\n");
+    } else {
+        printf("You are an adult.\n");
+    }
+
+    // 3) End of program
+    return 0;
+}
+
